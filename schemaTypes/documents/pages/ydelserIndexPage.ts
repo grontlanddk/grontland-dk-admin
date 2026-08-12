@@ -4,12 +4,12 @@ import {defineField, defineType} from 'sanity'
    (nav, cardDesc, heroImage, order); only hero + CTA live here. */
 export const ydelserIndexPage = defineType({
   name: 'ydelserIndexPage',
-  title: 'Ydelser (indeks)',
+  title: 'Услуги (индекс)',
   type: 'document',
   fields: [
     defineField({name: 'seo', title: 'SEO', type: 'seoMeta', validation: (r) => r.required()}),
     defineField({name: 'hero', title: 'Hero', type: 'heroSection', validation: (r) => r.required()}),
-    defineField({name: 'cta', title: 'Closing CTA', type: 'ctaBand'}),
+    defineField({name: 'cta', title: 'Закрывающий CTA', type: 'ctaBand'}),
   ],
-  preview: {prepare: () => ({title: 'Ydelser (indeks)'})},
+  preview: {prepare: () => ({title: 'Услуги (индекс)'})},
 })

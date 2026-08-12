@@ -4,14 +4,19 @@ import {defineField, defineType} from 'sanity'
    service pages. Rendered by SeoText / ServiceSeoText. */
 export const seoTextSection = defineType({
   name: 'seoTextSection',
-  title: 'SEO text',
+  title: 'SEO-текст',
   type: 'object',
   fields: [
-    defineField({name: 'h2', title: 'Heading', type: 'string', validation: (r) => r.required()}),
-    defineField({name: 'text', title: 'Text (120–180 words)', type: 'text', validation: (r) => r.required()}),
+    defineField({name: 'h2', title: 'Заголовок', type: 'string', validation: (r) => r.required()}),
+    defineField({
+      name: 'text',
+      title: 'Текст (120–180 слов)',
+      type: 'text',
+      validation: (r) => r.required(),
+    }),
     defineField({
       name: 'images',
-      title: 'Photos (0–2; the galleri block renders without photos)',
+      title: 'Фото (0–2; блок галереи может быть без фото)',
       type: 'array',
       of: [{type: 'imageWithAlt'}],
       validation: (r) => r.max(2),

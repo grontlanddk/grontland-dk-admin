@@ -4,20 +4,25 @@ import {defineField, defineType} from 'sanity'
    button comes from siteSettings, not from here. */
 export const ctaBand = defineType({
   name: 'ctaBand',
-  title: 'CTA band',
+  title: 'CTA-полоса',
   type: 'object',
   fields: [
-    defineField({name: 'h2', title: 'Heading', type: 'string', validation: (r) => r.required()}),
-    defineField({name: 'text', title: 'Text', type: 'text', validation: (r) => r.required()}),
-    defineField({name: 'primary', title: 'Primary CTA', type: 'ctaLink', validation: (r) => r.required()}),
+    defineField({name: 'h2', title: 'Заголовок', type: 'string', validation: (r) => r.required()}),
+    defineField({name: 'text', title: 'Текст', type: 'text', validation: (r) => r.required()}),
+    defineField({
+      name: 'primary',
+      title: 'Основной CTA',
+      type: 'ctaLink',
+      validation: (r) => r.required(),
+    }),
     defineField({
       name: 'crosslinks',
-      title: 'Crosslinks',
+      title: 'Кросс-ссылки',
       type: 'array',
       of: [{type: 'ctaLink'}],
       validation: (r) => r.max(3),
     }),
-    defineField({name: 'image', title: 'Photo (right bleed)', type: 'imageWithAlt'}),
+    defineField({name: 'image', title: 'Фото (правый bleed)', type: 'imageWithAlt'}),
   ],
   preview: {select: {title: 'h2'}},
 })

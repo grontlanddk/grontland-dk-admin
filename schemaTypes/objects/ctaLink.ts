@@ -4,11 +4,11 @@ import {defineField, defineType} from 'sanity'
    routes are code, so this stays a plain string — same in both locales. */
 export const ctaLink = defineType({
   name: 'ctaLink',
-  title: 'Link / CTA',
+  title: 'Ссылка / CTA',
   type: 'object',
   fields: [
-    defineField({name: 'label', title: 'Label', type: 'string', validation: (r) => r.required()}),
-    defineField({name: 'href', title: 'Path', type: 'string', validation: (r) => r.required()}),
+    defineField({name: 'label', title: 'Текст', type: 'string', validation: (r) => r.required()}),
+    defineField({name: 'href', title: 'Путь', type: 'string', validation: (r) => r.required()}),
   ],
   preview: {
     select: {title: 'label', subtitle: 'href'},

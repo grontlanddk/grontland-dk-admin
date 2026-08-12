@@ -5,32 +5,32 @@ import {defineField, defineType} from 'sanity'
    referenced service documents. */
 export const entreprenorerPage = defineType({
   name: 'entreprenorerPage',
-  title: 'Entreprenører',
+  title: 'Подрядчики',
   type: 'document',
   fields: [
     defineField({name: 'seo', title: 'SEO', type: 'seoMeta', validation: (r) => r.required()}),
     defineField({name: 'hero', title: 'Hero', type: 'heroSection', validation: (r) => r.required()}),
-    defineField({name: 'scenarios', title: 'Collaboration ways', type: 'cardGrid'}),
-    defineField({name: 'expectations', title: 'Expectations', type: 'cardGrid'}),
-    defineField({name: 'why', title: 'Why one partner (intro + link)', type: 'cardGrid'}),
-    defineField({name: 'model', title: 'Collaboration model', type: 'stepsSection'}),
+    defineField({name: 'scenarios', title: 'Форматы сотрудничества', type: 'cardGrid'}),
+    defineField({name: 'expectations', title: 'Ожидания', type: 'cardGrid'}),
+    defineField({name: 'why', title: 'Почему один партнёр (интро + ссылка)', type: 'cardGrid'}),
+    defineField({name: 'model', title: 'Модель сотрудничества', type: 'stepsSection'}),
     defineField({
       name: 'caseHighlight',
-      title: 'Case highlight',
+      title: 'Выделенный кейс',
       type: 'object',
       fields: [
-        defineField({name: 'h2', title: 'Heading', type: 'string', validation: (r) => r.required()}),
-        defineField({name: 'text', title: 'Text', type: 'text', validation: (r) => r.required()}),
+        defineField({name: 'h2', title: 'Заголовок', type: 'string', validation: (r) => r.required()}),
+        defineField({name: 'text', title: 'Текст', type: 'text', validation: (r) => r.required()}),
         defineField({
           name: 'project',
-          title: 'Project',
+          title: 'Проект',
           type: 'reference',
           to: [{type: 'project'}],
           validation: (r) => r.required(),
         }),
         defineField({
           name: 'ctas',
-          title: 'CTAs',
+          title: 'CTA',
           type: 'array',
           of: [{type: 'ctaLink'}],
           validation: (r) => r.max(2),
@@ -39,19 +39,19 @@ export const entreprenorerPage = defineType({
     }),
     defineField({
       name: 'trades',
-      title: 'Trades covered',
+      title: 'Покрываемые направления',
       type: 'object',
       fields: [
-        defineField({name: 'h2', title: 'Heading', type: 'string', validation: (r) => r.required()}),
+        defineField({name: 'h2', title: 'Заголовок', type: 'string', validation: (r) => r.required()}),
         defineField({
           name: 'services',
-          title: 'Services (links derive from these)',
+          title: 'Услуги (ссылки берутся из них)',
           type: 'array',
           of: [{type: 'reference', to: [{type: 'service'}]}],
         }),
       ],
     }),
-    defineField({name: 'cta', title: 'Closing CTA', type: 'ctaBand'}),
+    defineField({name: 'cta', title: 'Закрывающий CTA', type: 'ctaBand'}),
   ],
-  preview: {prepare: () => ({title: 'Entreprenører'})},
+  preview: {prepare: () => ({title: 'Подрядчики'})},
 })

@@ -7,13 +7,13 @@ export const seoMeta = defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Meta title (≤60 chars)',
+      title: 'Meta title (≤60 символов)',
       type: 'string',
       validation: (r) => r.required(),
     }),
     defineField({
       name: 'description',
-      title: 'Meta description (140–160 chars, ends in a CTA)',
+      title: 'Meta description (140–160 символов, заканчивается CTA)',
       type: 'text',
       validation: (r) => r.required(),
     }),

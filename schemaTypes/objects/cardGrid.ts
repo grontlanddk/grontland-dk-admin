@@ -7,26 +7,30 @@ import {defineField, defineType} from 'sanity'
    styled per-page variants. */
 export const cardGrid = defineType({
   name: 'cardGrid',
-  title: 'Card grid',
+  title: 'Сетка карточек',
   type: 'object',
   fields: [
-    defineField({name: 'h2', title: 'Heading', type: 'string', validation: (r) => r.required()}),
-    defineField({name: 'intro', title: 'Intro line', type: 'text'}),
+    defineField({name: 'h2', title: 'Заголовок', type: 'string', validation: (r) => r.required()}),
+    defineField({name: 'intro', title: 'Интро', type: 'text'}),
     defineField({
       name: 'items',
-      title: 'Cards',
+      title: 'Карточки',
       type: 'array',
       of: [
         {
           type: 'object',
           name: 'card',
           fields: [
-            defineField({name: 'title', title: 'Title', type: 'string', validation: (r) => r.required()}),
-            defineField({name: 'desc', title: 'Text', type: 'text', validation: (r) => r.required()}),
-            defineField({name: 'image', title: 'Photo (card layouts with images)', type: 'imageWithAlt'}),
+            defineField({name: 'title', title: 'Название', type: 'string', validation: (r) => r.required()}),
+            defineField({name: 'desc', title: 'Текст', type: 'text', validation: (r) => r.required()}),
+            defineField({
+              name: 'image',
+              title: 'Фото (для карточек с изображениями)',
+              type: 'imageWithAlt',
+            }),
             defineField({
               name: 'links',
-              title: 'Links (fx service + example)',
+              title: 'Ссылки (напр. услуга + пример)',
               type: 'array',
               of: [{type: 'ctaLink'}],
               validation: (r) => r.max(2),
@@ -39,12 +43,16 @@ export const cardGrid = defineType({
     }),
     defineField({
       name: 'links',
-      title: 'Section links (below the grid)',
+      title: 'Ссылки секции (под сеткой)',
       type: 'array',
       of: [{type: 'ctaLink'}],
       validation: (r) => r.max(2),
     }),
-    defineField({name: 'backgroundImage', title: 'Background photo (full-bleed band)', type: 'imageWithAlt'}),
+    defineField({
+      name: 'backgroundImage',
+      title: 'Фон (full-bleed полоса)',
+      type: 'imageWithAlt',
+    }),
   ],
   preview: {select: {title: 'h2'}},
 })

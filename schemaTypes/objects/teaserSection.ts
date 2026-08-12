@@ -7,21 +7,21 @@ import {defineField, defineType} from 'sanity'
    cards, gallery photos) is derived from its own documents. */
 export const teaserSection = defineType({
   name: 'teaserSection',
-  title: 'Teaser section',
+  title: 'Тизер-секция',
   type: 'object',
   fields: [
-    defineField({name: 'h2', title: 'Heading', type: 'string', validation: (r) => r.required()}),
-    defineField({name: 'sub', title: 'Sub line', type: 'text'}),
+    defineField({name: 'h2', title: 'Заголовок', type: 'string', validation: (r) => r.required()}),
+    defineField({name: 'sub', title: 'Подзаголовок', type: 'text'}),
     defineField({
       name: 'ctas',
-      title: 'CTAs',
+      title: 'CTA',
       type: 'array',
       of: [{type: 'ctaLink'}],
       validation: (r) => r.max(2),
     }),
     defineField({
       name: 'projects',
-      title: 'Pinned projects (project teasers only)',
+      title: 'Закреплённые проекты (только тизеры проектов)',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'project'}]}],
       validation: (r) => r.max(4),

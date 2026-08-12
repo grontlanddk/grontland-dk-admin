@@ -7,21 +7,21 @@ const singleton = (S: Parameters<StructureResolver>[0], type: string, title: str
    collections below. */
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title('Indhold')
+    .title('Контент')
     .items([
-      singleton(S, 'siteSettings', 'Site settings'),
-      singleton(S, 'quoteForm', 'Quote form'),
+      singleton(S, 'siteSettings', 'Настройки сайта'),
+      singleton(S, 'quoteForm', 'Форма заявки'),
       S.divider(),
-      singleton(S, 'homePage', 'Forside'),
-      singleton(S, 'ydelserIndexPage', 'Ydelser (indeks)'),
-      singleton(S, 'privatePage', 'Private kunder'),
-      singleton(S, 'entreprenorerPage', 'Entreprenører'),
-      singleton(S, 'projekterPage', 'Projekter (liste)'),
-      singleton(S, 'galleriPage', 'Galleri'),
-      singleton(S, 'omOsPage', 'Om os'),
-      singleton(S, 'kontaktPage', 'Kontakt'),
+      singleton(S, 'homePage', 'Главная'),
+      singleton(S, 'ydelserIndexPage', 'Услуги (индекс)'),
+      singleton(S, 'privatePage', 'Частные клиенты'),
+      singleton(S, 'entreprenorerPage', 'Подрядчики'),
+      singleton(S, 'projekterPage', 'Проекты (список)'),
+      singleton(S, 'galleriPage', 'Галерея'),
+      singleton(S, 'omOsPage', 'О нас'),
+      singleton(S, 'kontaktPage', 'Контакты'),
       S.divider(),
-      S.documentTypeListItem('service').title('Ydelser'),
-      S.documentTypeListItem('project').title('Projekter'),
-      S.documentTypeListItem('galleryCategory').title('Galleri-kategorier'),
+      S.documentTypeListItem('service').title('Услуги'),
+      S.documentTypeListItem('project').title('Проекты'),
+      S.documentTypeListItem('galleryCategory').title('Категории галереи'),
     ])

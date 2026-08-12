@@ -5,13 +5,13 @@ import {defineField, defineType} from 'sanity'
    only hero + seo text + CTA live here. */
 export const galleriPage = defineType({
   name: 'galleriPage',
-  title: 'Galleri',
+  title: 'Галерея',
   type: 'document',
   fields: [
     defineField({name: 'seo', title: 'SEO', type: 'seoMeta', validation: (r) => r.required()}),
     defineField({name: 'hero', title: 'Hero', type: 'heroSection', validation: (r) => r.required()}),
-    defineField({name: 'seoText', title: 'SEO text block', type: 'seoTextSection'}),
-    defineField({name: 'cta', title: 'Closing CTA', type: 'ctaBand'}),
+    defineField({name: 'seoText', title: 'SEO-текст', type: 'seoTextSection'}),
+    defineField({name: 'cta', title: 'Закрывающий CTA', type: 'ctaBand'}),
   ],
-  preview: {prepare: () => ({title: 'Galleri'})},
+  preview: {prepare: () => ({title: 'Галерея'})},
 })

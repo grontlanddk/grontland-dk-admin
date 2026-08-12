@@ -5,30 +5,34 @@ import {defineField, defineType} from 'sanity'
    switches it to the full-bleed photo treatment. */
 export const stepsSection = defineType({
   name: 'stepsSection',
-  title: 'Steps',
+  title: 'Шаги',
   type: 'object',
   fields: [
-    defineField({name: 'h2', title: 'Heading', type: 'string', validation: (r) => r.required()}),
-    defineField({name: 'intro', title: 'Intro line', type: 'text'}),
+    defineField({name: 'h2', title: 'Заголовок', type: 'string', validation: (r) => r.required()}),
+    defineField({name: 'intro', title: 'Интро', type: 'text'}),
     defineField({
       name: 'steps',
-      title: 'Steps',
+      title: 'Шаги',
       type: 'array',
       of: [
         {
           type: 'object',
           name: 'step',
           fields: [
-            defineField({name: 'title', title: 'Title', type: 'string', validation: (r) => r.required()}),
-            defineField({name: 'desc', title: 'Text', type: 'text', validation: (r) => r.required()}),
+            defineField({name: 'title', title: 'Название', type: 'string', validation: (r) => r.required()}),
+            defineField({name: 'desc', title: 'Текст', type: 'text', validation: (r) => r.required()}),
           ],
           preview: {select: {title: 'title', subtitle: 'desc'}},
         },
       ],
       validation: (r) => r.min(3).max(5),
     }),
-    defineField({name: 'cta', title: 'CTA under the steps', type: 'ctaLink'}),
-    defineField({name: 'backgroundImage', title: 'Background photo (full-bleed)', type: 'imageWithAlt'}),
+    defineField({name: 'cta', title: 'CTA под шагами', type: 'ctaLink'}),
+    defineField({
+      name: 'backgroundImage',
+      title: 'Фон (full-bleed фото)',
+      type: 'imageWithAlt',
+    }),
   ],
   preview: {select: {title: 'h2'}},
 })

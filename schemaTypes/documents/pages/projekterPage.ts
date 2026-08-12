@@ -4,14 +4,14 @@ import {defineField, defineType} from 'sanity'
    documents; filter labels stay in code (tied to the category enum). */
 export const projekterPage = defineType({
   name: 'projekterPage',
-  title: 'Projekter (liste)',
+  title: 'Проекты (список)',
   type: 'document',
   fields: [
     defineField({name: 'seo', title: 'SEO', type: 'seoMeta', validation: (r) => r.required()}),
     defineField({name: 'h1', title: 'H1', type: 'string', validation: (r) => r.required()}),
-    defineField({name: 'sub', title: 'Sub line', type: 'text'}),
-    defineField({name: 'emptyFilter', title: 'Empty-filter message', type: 'string'}),
-    defineField({name: 'cta', title: 'Closing CTA', type: 'ctaBand'}),
+    defineField({name: 'sub', title: 'Подзаголовок', type: 'text'}),
+    defineField({name: 'emptyFilter', title: 'Сообщение при пустом фильтре', type: 'string'}),
+    defineField({name: 'cta', title: 'Закрывающий CTA', type: 'ctaBand'}),
   ],
-  preview: {prepare: () => ({title: 'Projekter (liste)'})},
+  preview: {prepare: () => ({title: 'Проекты (список)'})},
 })

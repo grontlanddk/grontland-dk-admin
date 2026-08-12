@@ -4,16 +4,28 @@ import {defineField, defineType} from 'sanity'
    form labels derive from the quoteForm singleton. */
 export const kontaktPage = defineType({
   name: 'kontaktPage',
-  title: 'Kontakt',
+  title: 'Контакты',
   type: 'document',
   fields: [
     defineField({name: 'seo', title: 'SEO', type: 'seoMeta', validation: (r) => r.required()}),
     defineField({name: 'hero', title: 'Hero', type: 'heroSection', validation: (r) => r.required()}),
-    defineField({name: 'formH2', title: 'Form heading', type: 'string'}),
-    defineField({name: 'infoH2', title: 'Direct-contact heading', type: 'string'}),
-    defineField({name: 'infoNote', title: 'Direct-contact note (fx lørdag efter aftale)', type: 'string'}),
-    defineField({name: 'steps', title: '"Hvad sker der, når du har skrevet?"', type: 'stepsSection'}),
-    defineField({name: 'audiences', title: 'Audience cards (image + link per card)', type: 'cardGrid'}),
+    defineField({name: 'formH2', title: 'Заголовок формы', type: 'string'}),
+    defineField({name: 'infoH2', title: 'Заголовок прямого контакта', type: 'string'}),
+    defineField({
+      name: 'infoNote',
+      title: 'Примечание к прямому контакту (напр. суббота по договорённости)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'steps',
+      title: '«Что происходит после сообщения?»',
+      type: 'stepsSection',
+    }),
+    defineField({
+      name: 'audiences',
+      title: 'Карточки аудиторий (фото + ссылка)',
+      type: 'cardGrid',
+    }),
   ],
-  preview: {prepare: () => ({title: 'Kontakt'})},
+  preview: {prepare: () => ({title: 'Контакты'})},
 })

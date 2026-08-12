@@ -16,28 +16,28 @@ const CATEGORY_KEYS = [
 
 export const galleryCategory = defineType({
   name: 'galleryCategory',
-  title: 'Gallery category',
+  title: 'Категория галереи',
   type: 'document',
   fields: [
     defineField({
       name: 'key',
-      title: 'Category key (frontend taxonomy)',
+      title: 'Ключ категории (таксономия фронтенда)',
       type: 'string',
       options: {list: CATEGORY_KEYS},
       validation: (r) => r.required(),
     }),
-    defineField({name: 'title', title: 'Title', type: 'string', validation: (r) => r.required()}),
-    defineField({name: 'description', title: 'Section description (/galleri)', type: 'text'}),
-    defineField({name: 'cta', title: 'Service-page CTA (/galleri section button)', type: 'ctaLink'}),
+    defineField({name: 'title', title: 'Название', type: 'string', validation: (r) => r.required()}),
+    defineField({name: 'description', title: 'Описание секции (/galleri)', type: 'text'}),
+    defineField({name: 'cta', title: 'CTA страницы услуги (кнопка в /galleri)', type: 'ctaLink'}),
     defineField({
       name: 'photos',
-      title: 'Photos',
+      title: 'Фото',
       type: 'array',
       of: [{type: 'imageWithAlt'}],
       validation: (r) => r.min(1),
     }),
-    defineField({name: 'order', title: 'Sort order', type: 'number'}),
+    defineField({name: 'order', title: 'Порядок сортировки', type: 'number'}),
   ],
-  orderings: [{title: 'Sort order', name: 'order', by: [{field: 'order', direction: 'asc'}]}],
+  orderings: [{title: 'Порядок сортировки', name: 'order', by: [{field: 'order', direction: 'asc'}]}],
   preview: {select: {title: 'title', subtitle: 'key'}},
 })

@@ -7,18 +7,18 @@ export const faqSection = defineType({
   title: 'FAQ',
   type: 'object',
   fields: [
-    defineField({name: 'h2', title: 'Heading', type: 'string', validation: (r) => r.required()}),
+    defineField({name: 'h2', title: 'Заголовок', type: 'string', validation: (r) => r.required()}),
     defineField({
       name: 'items',
-      title: 'Questions',
+      title: 'Вопросы',
       type: 'array',
       of: [
         {
           type: 'object',
           name: 'faqItem',
           fields: [
-            defineField({name: 'q', title: 'Question', type: 'string', validation: (r) => r.required()}),
-            defineField({name: 'a', title: 'Answer', type: 'text', validation: (r) => r.required()}),
+            defineField({name: 'q', title: 'Вопрос', type: 'string', validation: (r) => r.required()}),
+            defineField({name: 'a', title: 'Ответ', type: 'text', validation: (r) => r.required()}),
           ],
           preview: {select: {title: 'q'}},
         },
