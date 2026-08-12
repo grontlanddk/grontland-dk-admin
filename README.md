@@ -2,27 +2,29 @@
 
 Sanity Studio for the Grontland project.
 
-- **Project id:** `g5o00tac` · **Dataset:** `production`
 - **Stack:** Sanity Studio v5 · TypeScript · structureTool + visionTool
+- **Project / dataset:** from env (`SANITY_STUDIO_PROJECT_ID`, `SANITY_STUDIO_DATASET`)
 
 ## Getting started
 
 ```bash
+cp .env.example .env   # set SANITY_STUDIO_PROJECT_ID
 npm install
-npm run dev        # studio at http://localhost:3333
+npm run dev            # studio at http://localhost:3333
 ```
 
-Useful CLI (runs against g5o00tac/production via sanity.cli.ts):
+Useful CLI (uses the same env via `sanity.cli.ts`):
 
 ```bash
 npx sanity dataset list
 npx sanity documents query "*[_id == 'siteSettings'][0]"
-npm run deploy     # hosts the studio at *.sanity.studio
+npm run deploy         # hosts the studio at *.sanity.studio
 ```
 
 ## Structure
 
 ```
+.env.example       env template (project id + dataset)
 sanity.config.ts   studio config (plugins, schema)
 sanity.cli.ts      CLI project/dataset binding
 schemaTypes/       content model (documents, objects) — see the outline in

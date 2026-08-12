@@ -5,12 +5,19 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID
+const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
+
+if (!projectId) {
+  throw new Error('Missing SANITY_STUDIO_PROJECT_ID (set it in .env)')
+}
+
 export default defineConfig({
   name: 'default',
   title: 'grontland-dk-admin',
 
-  projectId: 'g5o00tac',
-  dataset: 'production',
+  projectId,
+  dataset,
 
   plugins: [structureTool({structure}), visionTool()],
 
